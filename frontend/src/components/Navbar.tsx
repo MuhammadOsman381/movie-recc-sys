@@ -35,18 +35,11 @@ const Navbar: React.FC = () => {
         </Link>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
           <Link to="/" className={`hover:text-white transition-colors ${location.pathname === '/' ? 'text-white font-bold' : ''}`}>Home</Link>
-          <button className="hover:text-white transition-colors">TV Shows</button>
-          <button className="hover:text-white transition-colors">Movies</button>
-          <button className="hover:text-white transition-colors">My List</button>
         </div>
       </div>
 
       <div className="flex items-center gap-6">
-        {isAuthenticated && (
-           <button className="text-gray-300 hover:text-white transition-colors hidden md:block">
-            <Bell className="w-5 h-5" />
-           </button>
-        )}
+        
         {isAuthenticated ? (
           <div className="flex items-center gap-4 group cursor-pointer relative py-2">
             <div className="w-8 h-8 rounded bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center text-white font-bold text-sm">

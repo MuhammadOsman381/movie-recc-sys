@@ -115,10 +115,6 @@ const HomePage: React.FC = () => {
                                     <Info className="w-6 h-6 fill-transparent" />
                                     <span>More Info</span>
                                 </Link>
-                                <button className="px-8 py-3 bg-gray-500/50 backdrop-blur-md text-white rounded font-bold flex items-center gap-2 hover:bg-gray-500/70 transition-colors">
-                                    <Plus className="w-6 h-6" />
-                                    <span>My List</span>
-                                </button>
                             </div>
                         </motion.div>
                     </div>

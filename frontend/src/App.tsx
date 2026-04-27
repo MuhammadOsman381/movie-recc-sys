@@ -43,7 +43,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>
-        
+
         <footer className="border-t border-white/5 py-10 text-center text-[var(--text-secondary)] text-sm">
           <p>© 2026 CineMatch. All rights reserved.</p>
           <p className="mt-2">Built with React, FastAPI & Recommendation Algorithms</p>
