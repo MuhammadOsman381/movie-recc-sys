@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+
+  --color-netflix-black: #141414;
+  --color-netflix-red: #E50914;
+  --color-netflix-gray: #181818;
+}
+
+:root {
+  --bg-primary: #141414; /* Netflix black */
+  --bg-secondary: #181818;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent: #E50914; /* Netflix red */
+  --accent-hover: #f40612;
+  --card-bg: #181818;
+  --card-border: transparent;
+}
+
+.dark {
+  --bg-primary: #141414;
+  --bg-secondary: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #808080;
+  --accent: #E50914;
+  --accent-hover: #b81d24;
+  --card-bg: #181818;
+  --card-border: transparent;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: radial-gradient(circle at top right, rgba(229, 9, 20, 0.05), transparent 40%),
+                    radial-gradient(circle at bottom left, rgba(229, 9, 20, 0.05), transparent 40%);
+  background-attachment: fixed;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+@layer components {
+  .glass {
+    @apply bg-black/40 backdrop-blur-xl border border-white/5;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-[var(--accent)] text-white rounded-lg font-bold tracking-wide transition-all duration-300 hover:bg-[var(--accent-hover)] hover:scale-105 hover:shadow-[0_0_15px_rgba(229,9,20,0.5)] active:scale-95 disabled:opacity-50 disabled:hover:scale-100;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg font-bold tracking-wide transition-all duration-300 hover:bg-white/30 hover:scale-105 active:scale-95 disabled:opacity-50;
+  }
+  
+  .movie-card {
+    @apply relative overflow-hidden rounded-md bg-[var(--card-bg)] transition-all duration-500 origin-center cursor-pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Hide scrollbar for horizontal scrolling containers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
