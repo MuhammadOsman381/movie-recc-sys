@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Search, LogOut, Clapperboard, Bell } from 'lucide-react';
+import {  LogOut, Clapperboard, Bell } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
 import { motion, useScroll, useTransform } from 'framer-motion';
 

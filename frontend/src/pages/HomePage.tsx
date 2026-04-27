@@ -3,7 +3,7 @@ import api from '../services/api';
 import MovieGrid from '../components/MovieGrid';
 import RecommendationSection from '../components/RecommendationSection';
 import { useAuthStore } from '../store/useAuthStore';
-import { Search, Loader2, Play, Info, Plus } from 'lucide-react';
+import { Search, Loader2, Info, Plus } from 'lucide-react';
 import debounce from 'lodash-es/debounce';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';

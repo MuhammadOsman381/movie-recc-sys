@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import api from '../services/api';
-import { Star, Clock, Calendar, Heart, Share2, ArrowLeft, Play, Plus, ThumbsUp } from 'lucide-react';
+import { Star, Heart, Plus, } from 'lucide-react';
 import RecommendationSection from '../components/RecommendationSection';
 import { useAuthStore } from '../store/useAuthStore';
 import { motion } from 'framer-motion';
@@ -51,7 +51,7 @@ const MovieDetailPage: React.FC = () => {
   const posterUrl = movie.poster_path && movie.poster_path.startsWith('http')
     ? movie.poster_path
     : 'https://via.placeholder.com/500x750/111111/444444?text=No+Poster';
-    
+
   const backDropUrl = posterUrl; // Using poster as backdrop since OMDB usually gives posters
   const isHighRated = movie.vote_average >= 8.0;
 
@@ -68,9 +68,9 @@ const MovieDetailPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/60 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-transparent"></div>
         </div>
-        
+
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center md:items-end gap-12 pb-20 pt-36">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -82,33 +82,33 @@ const MovieDetailPage: React.FC = () => {
               className="w-full h-auto object-cover"
             />
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex-1 text-center md:text-left"
           >
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-4 text-sm font-bold tracking-wider mt-4 md:mt-0">
-               <span className="text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-1 rounded">MOVIE</span>
-               {isHighRated && <span className="text-green-500 border border-green-500 px-2 py-1 rounded">MATCH</span>}
-               <span className="text-gray-300">{movie.release_date}</span>
-               {movie.vote_average > 0 && (
-                   <span className="flex items-center gap-1 text-yellow-500">
-                     <Star className="w-4 h-4 fill-yellow-500" /> {movie.vote_average.toFixed(1)}
-                   </span>
-               )}
+              <span className="text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-1 rounded">MOVIE</span>
+              {isHighRated && <span className="text-green-500 border border-green-500 px-2 py-1 rounded">MATCH</span>}
+              <span className="text-gray-300">{movie.release_date}</span>
+              {movie.vote_average > 0 && (
+                <span className="flex items-center gap-1 text-yellow-500">
+                  <Star className="w-4 h-4 fill-yellow-500" /> {movie.vote_average.toFixed(1)}
+                </span>
+              )}
             </div>
 
             <h1 className="text-5xl md:text-7xl font-black mb-6 outfit text-white drop-shadow-2xl">{movie.title}</h1>
-            
+
             <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl leading-relaxed drop-shadow-md">
               {movie.overview}
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
               {isAuthenticated && (
-                <button 
+                <button
                   onClick={handleLike}
                   className="btn-primary flex items-center gap-2"
                 >
